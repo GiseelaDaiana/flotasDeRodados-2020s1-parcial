@@ -1,0 +1,65 @@
+import dependencia.*
+import trafic.*
+import rodado.*
+test "test1"{
+		// indicacion de rodado
+	const chanchito = new ChevroletCorsa()
+	chanchito.colorElejido(rojo)
+	// indicacion de dependencia deporte
+	const deportes = new Dependencia()
+	deportes.cantidadDeEmpleados(45)
+    //caracteristicas paraDeporte
+	const corsaAzul = new ChevroletCorsa()
+	corsaAzul.colorElejido(azul)
+	const corsaVerde = new ChevroletCorsa()
+	corsaVerde.colorElejido(verde)
+	const kwidConTanque = new RenaultKwid()
+	kwidConTanque.tieneTanqueAdicional()
+	const autoEspecial1 = new AutoEspecial()
+	autoEspecial1.indicarCapacidad(5)
+	autoEspecial1.indicarVelocidadMax(160)
+	autoEspecial1.indicarColor(baige)
+	autoEspecial1.indicarPeso(1200)
+	//agregarA deportes
+	deportes.agregarAFlota(chanchito)
+	deportes.agregarAFlota(corsaAzul)
+	deportes.agregarAFlota(corsaVerde)
+	deportes.agregarAFlota(kwidConTanque)
+	deportes.agregarAFlota(autoEspecial1)
+	
+	
+	// indicacion de dependencia cultura
+	const cultura = new Dependencia()
+	cultura.cantidadDeEmpleados(31)
+	//caracteristicas para cultura
+	const kwidConTanque1 = new RenaultKwid()
+	kwidConTanque1.tieneTanqueAdicional()
+	const kwidConTanque2 = new RenaultKwid()
+	kwidConTanque2.tieneTanqueAdicional()
+	const kwid1 = new RenaultKwid()
+	trafic.definirInterior(interiorPopular)
+	trafic.definirMotor(motorBataton)
+	//AGREGARAcultura
+	cultura.agregarAFlota(chanchito)
+	cultura.agregarAFlota(kwidConTanque1)
+	cultura.agregarAFlota(kwidConTanque2)
+	cultura.agregarAFlota(kwid1)
+	cultura.agregarAFlota(trafic)
+	
+	
+	
+	//test cultura
+    assert.equals(10700,cultura.pesoTotalFlota())
+	assert.notThat(cultura.estaBienEquipada())
+	assert.equals(10 ,cultura.capacidadTotalEnColor(azul))
+	assert.equals(rojo ,cultura.colorDelRodadoMasRapido())
+	assert.notThat(cultura.esGrande())
+	assert.equals(5 ,cultura.capacidadFaltante())
+	//test deporte
+    assert.equals(6450,deportes.pesoTotalFlota())
+	assert.that(deportes.estaBienEquipada())
+	assert.equals(7 ,deportes.capacidadTotalEnColor(azul))
+	assert.equals(baige ,deportes.colorDelRodadoMasRapido())
+	assert.that(deportes.esGrande())
+	assert.equals(25 ,deportes.capacidadFaltante())
+}
